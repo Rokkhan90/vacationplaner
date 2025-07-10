@@ -1,4 +1,4 @@
-/* variables */
+/* variablen */
 :root {
     --primary-color: #007bff;
     --primary-hover: #0056b3;
@@ -91,6 +91,10 @@ button {
     height: 25px;
     border-radius: 50%;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 .modal-buttons button {
