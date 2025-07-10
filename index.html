@@ -1,0 +1,143 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Urlaubsplaner</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="bluecontainer">
+            <div class="vacation">
+                <h1>Urlaubsplaner</h1>
+            </div>
+            <div class="add-destination">
+                <button class="addDestinationButton" id="addDestinationButton">+ Neues Reiseziel</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- neues reiseziel hinzufügen-->
+    <div id="destinationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeDestinationModal">&times;</span>
+            <h2>Neues Reiseziel hinzufügen</h2>
+            <input type="text" id="destinationInput" placeholder="Reiseziel eingeben (z.B. Griechenland)">
+            <div class="modal-buttons">
+                <button id="addDestination">Hinzufügen</button>
+                <button id="cancelDestination">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ausgaben hinzufügen-->
+    <div id="expenseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeExpenseModal">&times;</span>
+            <h2>Neue Ausgabe hinzufügen</h2>
+            <input type="text" id="expenseNameInput" placeholder="Name der Ausgabe">
+            <input type="number" id="expenseAmountInput" placeholder="Betrag" step="0.01">
+            <div class="modal-buttons">
+                <button id="addExpense">Hinzufügen</button>
+                <button id="cancelExpense">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- reiseziel bearbeiten -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeEditModal">&times;</span>
+            <h2>Reiseziel bearbeiten</h2>
+            <input type="text" id="editDestinationInput" placeholder="Neuer Name">
+            <div class="modal-buttons">
+                <button id="saveEdit">Speichern</button>
+                <button id="cancelEdit">Abbrechen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- löschen bestätigen -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Reiseziel wirklich löschen?</h2>
+            <div class="modal-buttons">
+                <button id="confirmDelete">Ja</button>
+                <button id="cancelDelete">Nein</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="main-container">
+            <!-- linkes panel -->
+            <div class="left-panel">
+                <h2>Meine Reiseziele</h2>
+                <ul id="destinationsList">
+                    <!-- dynamisch gefüllt -->
+                </ul>
+            </div>
+
+            <!-- rechtes panel -->
+            <div class="right-panel">
+                <div id="welcomeMessage" class="welcome">
+                    <h2>Willkommen!</h2>
+                    <p>Wählen Sie ein Reiseziel aus oder fügen Sie ein neues hinzu.</p>
+                </div>
+
+                <div id="destinationDetails" class="destination-details" style="display: none;">
+                    <!-- reiseziel header -->
+                    <div class="destination-header">
+                        <h2 id="destinationTitle">Reiseziel</h2>
+                        <div class="header-buttons">
+                            <button id="editDestinationBtn" class="edit-btn">Reiseziel bearbeiten</button>
+                            <button id="deleteDestinationBtn" class="delete-btn">Löschen</button>
+                        </div>
+                    </div>
+
+                    <!-- notizen bereich -->
+                    <div class="notes-section">
+                        <h3>Notizen</h3>
+                        <textarea id="notesTextarea" placeholder="Ihre Notizen..."></textarea>
+                        <button id="saveNotesBtn" class="save-btn">Speichern</button>
+                    </div>
+
+                    <!-- ausgaben Bereich -->
+                    <div class="expenses-section">
+                        <h3>Ausgaben (Summe: <span id="totalAmount">0.00</span>€)</h3>
+                        <table id="expensesTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Betrag</th>
+                                    <th>Aktionen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expensesTableBody">
+                                <!-- dynamisch gefüllt -->
+                            </tbody>
+                        </table>
+                        <button id="addExpenseBtn" class="add-btn">+ Ausgabe hinzufügen</button>
+                    </div>
+
+                    <!-- packliste bereich -->
+                    <div class="packing-section">
+                        <h3>Packliste</h3>
+                        <ul id="packingList">
+                            <!-- dynamisch gefüllt -->
+                        </ul>
+                        <div class="packing-input">
+                            <input type="text" id="packingItemInput" placeholder="Gegenstand eingeben">
+                            <button id="addPackingItemBtn" class="add-btn">Hinzufügen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="notification" class="notification hidden">Notizen gespeichert!</div>
+
+</body>
+</html>

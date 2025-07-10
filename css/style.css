@@ -1,0 +1,401 @@
+/* variablen */
+:root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --success-color: #28a745;
+    --success-hover: #218838;
+    --danger-color: #dc3545;
+    --danger-hover: #c82333;
+    --secondary-color: #6c757d;
+    --secondary-hover: #545b62;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-bg: #f8f9fa;
+    --border-color: #ddd;
+    --text-color: #333;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* common button styles */
+button {
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary, .addDestinationButton, #addDestination, #addExpense, #saveEdit, #confirmDelete {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover, .addDestinationButton:hover, #addDestination:hover, #addExpense:hover, #saveEdit:hover, #confirmDelete:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-success, .add-btn, .edit-btn, .expense-edit {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-success:hover, .add-btn:hover, .edit-btn:hover, .expense-edit:hover {
+    background-color: var(--success-hover);
+}
+
+.btn-danger, .delete-btn, .expense-delete, .remove-item {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover, .delete-btn:hover, .expense-delete:hover, .remove-item:hover {
+    background-color: var(--danger-hover);
+}
+
+.btn-secondary, #cancelDestination, #cancelExpense, #cancelEdit, #cancelDelete {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover, #cancelDestination:hover, #cancelExpense:hover, #cancelEdit:hover, #cancelDelete:hover {
+    background-color: var(--secondary-hover);
+}
+
+/* specific button adjustments */
+.addDestinationButton {
+    font-size: 12px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.add-btn {
+    padding: 10px 20px;
+}
+
+.expense-edit, .expense-delete {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.remove-item {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.modal-buttons button {
+    padding: 10px 25px;
+    font-size: 16px;
+    min-width: 100px;
+}
+
+/* layout */
+.bluecontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 30px;
+    color: white;
+}
+
+.main-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+    padding: 0 20px;
+    min-height: calc(100vh - 120px);
+}
+
+/* panels */
+.left-panel, .right-panel {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.left-panel {
+    flex: 1;
+    height: fit-content;
+}
+
+.right-panel {
+    flex: 2;
+}
+
+/* headings */
+h2, h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.left-panel h2, .destination-header h2 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.destination-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+}
+
+.destination-header h2 {
+    margin: 0;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* lists */
+#destinationsList, #packingList {
+    list-style: none;
+    padding: 0;
+}
+
+#destinationsList li {
+    padding: 12px;
+    margin: 8px 0;
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+#destinationsList li:hover {
+    background-color: #e9ecef;
+    transform: translateX(5px);
+}
+
+#destinationsList li.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(5px);
+}
+
+#packingList {
+    background-color: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    min-height: 100px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+}
+
+#packingList li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#packingList li:last-child {
+    border-bottom: none;
+}
+
+/* forms */
+input, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.modal-content input {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+#notesTextarea {
+    min-height: 100px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+.packing-input {
+    display: flex;
+    gap: 10px;
+}
+
+/* sections */
+.notes-section, .expenses-section {
+    margin-bottom: 30px;
+}
+
+.welcome {
+    text-align: center;
+    color: var(--secondary-color);
+    padding: 60px 20px;
+}
+
+.destination-details {
+    color: var(--text-color);
+}
+
+/* table */
+#expensesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#expensesTable th, #expensesTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#expensesTable th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+#expensesTable tr:hover {
+    background-color: var(--light-bg);
+}
+
+.expense-actions {
+    display: flex;
+    gap: 5px;
+}
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close:hover {
+    color: var(--text-color);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* notifications */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    transition: all 0.3s ease;
+    transform: translateX(100%);
+    opacity: 0;
+    font-size: 14px;
+    max-width: 300px;
+    background-color: var(--success-color);
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification.error {
+    background-color: var(--danger-color);
+}
+
+.notification.warning {
+    background-color: var(--warning-color);
+    color: #212529;
+}
+
+.notification.info {
+    background-color: var(--info-color);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .bluecontainer {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .destination-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .header-buttons {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .packing-input, .modal-buttons {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 20px;
+    }
+}
